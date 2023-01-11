@@ -5,3 +5,32 @@
   font-family: "Franklin Gothic Medium", sans-serif;
   font-weight: normal;
 }
+
+/* Styling body for background */
+body {
+  /* removed padding and margin so that bg fills entire screen */
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, #3088df, #05deb9);
+}
+
+/* Styling the grid */
+
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+/* Properly style buttons */
+
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.75);
+}
