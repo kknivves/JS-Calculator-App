@@ -20,13 +20,17 @@ class Calculator {
   //   Removes a single number
   delete() {}
   //   Every time a user clicks a number, it adds it to the screen
-  appendNumber() {}
+  appendNumber(number) {
+    this.currentOperand = number;
+  }
   // Take a function from the right side of calculator and runs the specific operation
   chooseOperation(operation) {}
 
   compute() {}
 
-  updateDisplay() {}
+  updateDisplay() {
+    this.currentOperandandTextElement.innerText = this.currentOperand;
+  }
 }
 
 const numberButtons = document.querySelectorAll("[data-number]");
@@ -39,3 +43,13 @@ const currentOperandandTextElement = document.querySelector("[data-current-opera
 
 // This is how you define a class, you state new followed by the class name
 const calculator = new Calculator(previousOperandandTextElement, currentOperandandTextElement);
+
+// say forEach because we want to loop over all different buttons
+numberButtons.forEach((button) => {
+  // each button will have an event listener which states, whenever we click on the button, we will do something and in our case, we want to add the number (append number) of whatever is inside the button i.e. numbers inside each button 1, 2, 3, 4,. etc
+  button.addEventListener("click", () => {
+    calculator.appendNumber(button.innerText);
+    // After we append, we want to call the function updateDisplay to update the values we see in the output.
+    calculator.updateDisplay();
+  });
+});
