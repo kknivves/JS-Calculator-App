@@ -21,7 +21,10 @@ class Calculator {
   delete() {}
   //   Every time a user clicks a number, it adds it to the screen
   appendNumber(number) {
-    this.currentOperand = number;
+    // This function will allow numbers to be converted to string and then appended after each button is pressed.
+    // if statement is created to fix issue where period is getting appended each time it is pressed. This if statement checks that if the number is equal to . and the current operand already has a ., return the current operand
+    if (number === "." && this.currentOperand.includes(".")) return;
+    this.currentOperand = this.currentOperand.toString() + number.toString();
   }
   // Take a function from the right side of calculator and runs the specific operation
   chooseOperation(operation) {}
