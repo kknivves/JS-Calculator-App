@@ -43,3 +43,12 @@ body {
 .span-two {
   grid-column: span 2;
 }
+/* styles output element as a whole and adds black background for div section */
+.output {
+  grid-column: 1 / -1;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: flex-end;
+  /* puts as much space between elements as possible */
+  justify-content: space-between;
+}
