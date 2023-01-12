@@ -51,4 +51,10 @@ body {
   align-items: flex-end;
   /* puts as much space between elements as possible */
   justify-content: space-between;
+  /* lines operands in a column against the right side */
+  flex-direction: column;
+  /* padding pushes the output away from the very wall of the div and gices 10px of padding */
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
