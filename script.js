@@ -27,12 +27,17 @@ class Calculator {
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
   // Take a function from the right side of calculator and runs the specific operation
-  chooseOperation(operation) {}
+  chooseOperation(operation) {
+    this.operation = operation;
+    this.previousOperand = this.currentOperand;
+    this.currentOperand = "";
+  }
 
   compute() {}
 
   updateDisplay() {
     this.currentOperandandTextElement.innerText = this.currentOperand;
+    this.previousOperandandTextElement.innerText = this.previousOperand;
   }
 }
 
@@ -53,6 +58,13 @@ numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
     calculator.appendNumber(button.innerText);
     // After we append, we want to call the function updateDisplay to update the values we see in the output.
+    calculator.updateDisplay();
+  });
+});
+
+operationButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    calculator.chooseOperation(button.innerText);
     calculator.updateDisplay();
   });
 });
