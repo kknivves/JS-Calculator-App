@@ -29,6 +29,9 @@ class Calculator {
   // Take a function from the right side of calculator and runs the specific operation
   chooseOperation(operation) {
     if (this.currentOperand === " ") return;
+    if (this.previousOperand !== "") {
+      this.compute();
+    }
     this.operation = operation;
     this.previousOperand = this.currentOperand;
     this.currentOperand = "";
