@@ -18,7 +18,9 @@ class Calculator {
   }
 
   //   Removes a single number
-  delete() {}
+  delete() {
+    this.currentOperand = this.currentOperand.toString().slice(0, -1);
+  }
   //   Every time a user clicks a number, it adds it to the screen
   appendNumber(number) {
     // This function will allow numbers to be converted to string and then appended after each button is pressed.
@@ -104,5 +106,10 @@ equalsButton.addEventListener("click", (button) => {
 
 allClearButton.addEventListener("click", (button) => {
   calculator.clear();
+  calculator.updateDisplay();
+});
+
+deleteButton.addEventListener("click", (button) => {
+  calculator.delete();
   calculator.updateDisplay();
 });
