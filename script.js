@@ -65,8 +65,14 @@ class Calculator {
     this.previousOperand = "";
   }
 
+  getDisplayNumber(number) {
+    const floatNumber = parseFloat(number);
+    if (isNaN(floatNumber)) return "";
+    return floatNumber.toLocaleString("en");
+  }
+
   updateDisplay() {
-    this.currentOperandandTextElement.innerText = this.currentOperand;
+    this.currentOperandandTextElement.innerText = this.getDisplayNumber(this.currentOperand);
     if (this.operation != null) {
       this.previousOperandandTextElement.innerText = `${this.previousOperand} ${this.operation}`;
     }
