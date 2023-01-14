@@ -86,6 +86,8 @@ class Calculator {
     this.currentOperandandTextElement.innerText = this.getDisplayNumber(this.currentOperand);
     if (this.operation != null) {
       this.previousOperandandTextElement.innerText = `${this.previousOperand} ${this.operation}`;
+    } else {
+      this.previousOperandandTextElement.innerText = "";
     }
   }
 }
